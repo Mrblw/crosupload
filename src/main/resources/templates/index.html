@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" >
+
+        $(function () {
+            $("#upload").click(function () {
+                var formData = new FormData();
+                formData.append('file', $('#file')[0].files[0]);
+                formData.append('type','prize');
+                $.ajax({
+                    url: 'http://stage-loong-mgr.ottcn.com/template/allTemplates',
+                    type: 'GET',
+                    cache: false,
+                    data: formData,
+                    processData: false,
+                    contentType: false
+                }).success(function(res) {
+                    alert(res.data)
+                }).error(function(res) {
+                    alert(res.data)
+                });
+            });
+        });
+
+    </script>
+</head>
+<body>
+<div id="uploadForm">
+    <input id="file" type="file" name="userfile"/>
+    <button id="upload" type="button">upload</button>
+    <h3>跨域测试</h3>
+    <a href="http://stage-loong-mgr.ottcn.com/template/allTemplates">所有模版</a>
+</div>
+</body>
+</html>
