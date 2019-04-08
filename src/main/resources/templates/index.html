@@ -9,13 +9,13 @@
         $(function () {
             $("#upload").click(function () {
                 var formData = new FormData();
-                formData.append('file', $('#file')[0].files[0]);
-                formData.append('type','prize');
+                //formData.append('file', $('#file')[0].files[0]);
+                formData.append('id','1');
                 $.ajax({
-                    url: 'http://stage-loong-mgr.ottcn.com/template/allTemplates',
+                    url: 'http://192.168.35.113:8080/template/allTemplates',
                     type: 'GET',
                     cache: false,
-                    data: formData,
+                    //data:formData,
                     processData: false,
                     contentType: false
                 }).success(function(res) {
